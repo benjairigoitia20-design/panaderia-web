@@ -1,0 +1,885 @@
+# SISTEMA DE GESTIÓN WEB — PANADERÍA
+
+## 1. OBJETIVO DEL SISTEMA
+
+Desarrollar un sistema web para gestionar de forma centralizada las operaciones de una panadería:
+
+* Productos
+* Recetas
+* Ingredientes e insumos
+* Inventario
+* Producción
+* Ventas
+* Pedidos
+* Clientes
+* Proveedores
+* Compras
+* Caja
+* Mermas
+* Reportes
+* Usuarios y permisos
+
+El sistema debe permitir conocer en todo momento qué se tiene, qué se produce, qué se vende, cuánto cuesta producirlo y cuánto dinero genera el negocio.
+
+# 2. ROLES Y USUARIOS
+
+## Roles iniciales
+
+### Administrador
+
+* Acceso completo
+* Gestión de usuarios
+* Configuración del sistema
+* Reportes
+* Productos
+* Inventario
+* Producción
+* Ventas
+* Caja
+* Compras
+
+### Encargado
+
+* Productos
+* Inventario
+* Producción
+* Compras
+* Pedidos
+* Clientes
+* Reportes operativos
+* Caja
+
+### Vendedor / Cajero
+
+* Ventas
+* Pedidos
+* Clientes
+* Consulta de productos
+* Apertura/cierre de caja
+
+### Producción
+
+* Consulta de recetas
+* Órdenes de producción
+* Registro de producción
+* Consumo de ingredientes
+* Registro de mermas
+
+# 3. DASHBOARD
+
+Mostrar información resumida del negocio.
+
+## Indicadores
+
+* Ventas del día
+* Ventas del mes
+* Cantidad de ventas
+* Pedidos pendientes
+* Pedidos para entregar hoy
+* Producción del día
+* Productos con stock bajo
+* Ingredientes con stock bajo
+* Mermas del día
+* Caja actual
+
+## Gráficos
+
+* Ventas por día
+* Ventas por categoría
+* Productos más vendidos
+* Evolución de ingresos
+* Costos vs ventas
+* Mermas
+
+# 4. PRODUCTOS
+
+Gestionar todos los productos que vende la panadería.
+
+## Datos
+
+* Nombre
+* Código
+* Categoría
+* Descripción
+* Imagen
+* Precio de venta
+* Costo
+* Margen
+* Unidad de venta
+* Stock actual
+* Stock mínimo
+* Estado
+* Fecha de creación
+
+## Categorías posibles
+
+* Panes
+* Facturas
+* Tortas
+* Pastelería
+* Sandwiches
+* Alfajores
+* Galletas
+* Bebidas
+* Otros
+
+## Funciones
+
+* Crear producto
+* Editar producto
+* Eliminar/desactivar producto
+* Cambiar precio
+* Consultar stock
+* Ver costo
+* Ver rentabilidad
+* Ver historial de precios
+
+# 5. RECETAS / FÓRMULAS
+
+Relacionar productos con los ingredientes necesarios para producirlos.
+
+## Receta
+
+* Producto
+* Nombre de receta
+* Rendimiento
+* Unidad de rendimiento
+* Tiempo de preparación
+* Tiempo de cocción
+* Instrucciones
+* Estado
+
+## Ingredientes de la receta
+
+* Ingrediente
+* Cantidad
+* Unidad
+* Porcentaje
+* Costo
+
+## Funciones
+
+* Crear receta
+* Editar receta
+* Duplicar receta
+* Versionar receta
+* Calcular costo
+* Calcular costo por unidad
+* Calcular ingredientes necesarios para una producción determinada
+
+# 6. INGREDIENTES / INSUMOS
+
+Gestionar materias primas.
+
+## Ejemplos
+
+* Harina
+* Azúcar
+* Sal
+* Levadura
+* Manteca
+* Margarina
+* Huevos
+* Leche
+* Chocolate
+* Dulce de leche
+* Frutas
+* Esencias
+* Envases
+* Bolsas
+* Cajas
+
+## Datos
+
+* Nombre
+* Código
+* Categoría
+* Unidad de medida
+* Stock actual
+* Stock mínimo
+* Costo unitario
+* Proveedor principal
+* Fecha de vencimiento
+* Estado
+
+## Funciones
+
+* Alta
+* Baja/desactivación
+* Edición
+* Ajuste de stock
+* Historial de movimientos
+* Consulta de costos
+
+# 7. INVENTARIO
+
+Controlar entradas y salidas de productos e ingredientes.
+
+## Movimientos
+
+* Entrada por compra
+* Salida por producción
+* Entrada por producción terminada
+* Salida por venta
+* Ajuste positivo
+* Ajuste negativo
+* Merma
+* Devolución
+
+## Funciones
+
+* Consultar stock
+* Ajustar stock
+* Ver historial
+* Filtrar movimientos
+* Alertas de stock mínimo
+* Control de vencimientos
+* Inventario físico
+
+## Importante
+
+Cada movimiento debe quedar registrado con:
+
+* Fecha
+* Usuario
+* Tipo de movimiento
+* Producto/ingrediente
+* Cantidad
+* Motivo
+* Observación
+
+# 8. PRODUCCIÓN
+
+Gestionar la fabricación de productos.
+
+## Orden de producción
+
+* Número
+* Fecha
+* Producto
+* Cantidad planificada
+* Receta utilizada
+* Ingredientes requeridos
+* Responsable
+* Estado
+* Cantidad producida
+* Observaciones
+
+## Estados
+
+* Planificada
+* En preparación
+* En producción
+* Terminada
+* Cancelada
+
+## Flujo
+
+1. Crear orden de producción
+2. Seleccionar producto
+3. Indicar cantidad
+4. Calcular ingredientes necesarios
+5. Verificar stock
+6. Iniciar producción
+7. Descontar ingredientes
+8. Finalizar producción
+9. Agregar productos terminados al stock
+10. Registrar diferencias o mermas
+
+# 9. MERMAS
+
+Registrar productos o ingredientes desperdiciados.
+
+## Datos
+
+* Tipo
+* Producto/ingrediente
+* Cantidad
+* Unidad
+* Motivo
+* Fecha
+* Usuario
+* Observación
+* Costo estimado
+
+## Motivos
+
+* Producto vencido
+* Producto quemado
+* Producto roto
+* Exceso de producción
+* Producto no vendido
+* Error de producción
+* Ingrediente vencido
+* Otro
+
+## Reportes
+
+* Merma diaria
+* Merma mensual
+* Merma por producto
+* Merma por ingrediente
+* Merma por motivo
+* Costo total de mermas
+
+# 10. VENTAS / POS
+
+Gestionar las ventas del mostrador.
+
+## Venta
+
+* Número
+* Fecha
+* Usuario
+* Cliente opcional
+* Productos
+* Cantidades
+* Descuentos
+* Subtotal
+* Total
+* Medio de pago
+* Estado
+
+## Medios de pago
+
+* Efectivo
+* Débito
+* Crédito
+* Transferencia
+* QR
+* Otros
+
+## Funciones
+
+* Nueva venta
+* Agregar productos
+* Aplicar descuentos
+* Cobrar
+* Emitir comprobante
+* Cancelar venta
+* Devolución
+* Consultar historial
+
+## Al confirmar una venta
+
+Debe:
+
+* Descontar stock
+* Registrar movimiento de inventario
+* Registrar ingreso en caja
+* Guardar la venta
+
+# 11. PEDIDOS
+
+Gestionar pedidos realizados por clientes.
+
+## Datos
+
+* Número
+* Cliente
+* Fecha del pedido
+* Fecha de entrega
+* Hora de entrega
+* Productos
+* Cantidades
+* Precio
+* Total
+* Seña
+* Saldo pendiente
+* Estado
+* Observaciones
+
+## Estados
+
+* Pendiente
+* Confirmado
+* En producción
+* Listo
+* Entregado
+* Cancelado
+
+## Casos especiales
+
+* Tortas personalizadas
+* Pedidos grandes
+* Eventos
+* Mesas dulces
+* Pedidos con seña
+
+# 12. CLIENTES
+
+## Datos
+
+* Nombre
+* Apellido
+* Teléfono
+* Email
+* Dirección
+* Fecha de nacimiento opcional
+* Observaciones
+* Estado
+
+## Funciones
+
+* Crear cliente
+* Editar cliente
+* Historial de compras
+* Historial de pedidos
+* Cuenta corriente
+* Consultar saldo
+* Registrar pagos
+
+# 13. PROVEEDORES
+
+## Datos
+
+* Razón social / nombre
+* CUIT/NIF según país
+* Teléfono
+* Email
+* Dirección
+* Contacto
+* Observaciones
+* Estado
+
+## Funciones
+
+* Alta
+* Edición
+* Desactivación
+* Historial de compras
+* Productos suministrados
+* Precios históricos
+
+# 14. COMPRAS
+
+Gestionar compras de ingredientes, insumos y productos.
+
+## Orden de compra
+
+* Número
+* Proveedor
+* Fecha
+* Productos
+* Cantidades
+* Precio unitario
+* Subtotal
+* Total
+* Estado
+
+## Estados
+
+* Borrador
+* Pendiente
+* Recibida
+* Parcial
+* Cancelada
+
+## Al recibir una compra
+
+Debe:
+
+* Aumentar stock
+* Registrar movimiento
+* Actualizar costo
+* Registrar proveedor
+* Registrar deuda/pago si corresponde
+
+# 15. CAJA
+
+Controlar el dinero del negocio.
+
+## Apertura
+
+* Usuario
+* Fecha
+* Hora
+* Monto inicial
+
+## Movimientos
+
+* Venta
+* Ingreso manual
+* Egreso
+* Retiro
+* Pago a proveedor
+* Devolución
+* Ajuste
+
+## Cierre
+
+* Total esperado
+* Total contado
+* Diferencia
+* Observaciones
+* Usuario
+* Fecha/hora
+
+## Reportes
+
+* Caja diaria
+* Ingresos
+* Egresos
+* Diferencias
+* Ventas por medio de pago
+
+# 16. REPORTES
+
+## Ventas
+
+* Ventas diarias
+* Ventas mensuales
+* Ventas por período
+* Ventas por producto
+* Ventas por categoría
+* Ventas por usuario
+* Ventas por medio de pago
+
+## Inventario
+
+* Stock actual
+* Stock bajo
+* Movimientos
+* Valorización del inventario
+* Vencimientos
+
+## Producción
+
+* Producción diaria
+* Producción mensual
+* Producción por producto
+* Producción planificada vs real
+
+## Rentabilidad
+
+* Costo de producción
+* Precio de venta
+* Margen
+* Rentabilidad por producto
+* Rentabilidad por categoría
+
+## Mermas
+
+* Cantidad
+* Costo
+* Producto
+* Motivo
+* Período
+
+# 17. CONFIGURACIÓN
+
+## Negocio
+
+* Nombre
+* Logo
+* Dirección
+* Teléfono
+* Email
+* Datos fiscales
+
+## Sistema
+
+* Moneda
+* Formato de fecha
+* Unidades de medida
+* Impuestos
+* Numeración de documentos
+
+## Usuarios
+
+* Usuarios
+* Roles
+* Permisos
+
+## Otros
+
+* Categorías
+* Medios de pago
+* Motivos de merma
+* Estados
+
+# 18. AUDITORÍA
+
+Registrar acciones importantes realizadas por los usuarios.
+
+Ejemplos:
+
+* Usuario creó producto
+* Usuario modificó precio
+* Usuario eliminó una venta
+* Usuario ajustó stock
+* Usuario modificó una receta
+* Usuario realizó cierre de caja
+* Usuario canceló pedido
+
+Guardar:
+
+* Usuario
+* Acción
+* Módulo
+* Fecha/hora
+* Registro afectado
+* Datos anteriores
+* Datos nuevos
+
+# 19. ESTRUCTURA PRINCIPAL DEL MENÚ
+
+Dashboard
+
+├── Ventas
+│   ├── Nueva venta
+│   └── Historial
+│
+├── Pedidos
+│   ├── Pedidos
+│   └── Calendario de entregas
+│
+├── Productos
+│   ├── Productos
+│   └── Categorías
+│
+├── Producción
+│   ├── Órdenes de producción
+│   └── Producción
+│
+├── Recetas
+│   └── Recetas
+│
+├── Inventario
+│   ├── Stock
+│   ├── Movimientos
+│   └── Mermas
+│
+├── Compras
+│   ├── Órdenes de compra
+│   └── Recepciones
+│
+├── Proveedores
+│
+├── Clientes
+│
+├── Caja
+│   ├── Caja actual
+│   ├── Movimientos
+│   └── Cierres
+│
+├── Reportes
+│   ├── Ventas
+│   ├── Inventario
+│   ├── Producción
+│   ├── Rentabilidad
+│   └── Mermas
+│
+└── Configuración
+├── Usuarios
+├── Roles y permisos
+├── Negocio
+└── Configuración general
+
+# 20. ORDEN RECOMENDADO DE DESARROLLO
+
+## FASE 1 — BASE
+
+[ ] Configuración del proyecto
+[ ] Base de datos
+[ ] Autenticación
+[ ] Usuarios
+[ ] Roles y permisos
+[ ] Layout principal
+[ ] Dashboard inicial
+
+## FASE 2 — CATÁLOGO
+
+[ ] Categorías
+[ ] Productos
+[ ] Ingredientes
+[ ] Unidades de medida
+
+## FASE 3 — RECETAS E INVENTARIO
+
+[ ] Recetas
+[ ] Ingredientes por receta
+[ ] Cálculo de costos
+[ ] Stock
+[ ] Movimientos de inventario
+[ ] Stock mínimo
+
+## FASE 4 — PRODUCCIÓN
+
+[ ] Órdenes de producción
+[ ] Cálculo de insumos
+[ ] Consumo de ingredientes
+[ ] Ingreso de productos terminados
+[ ] Mermas
+
+## FASE 5 — VENTAS
+
+[ ] POS
+[ ] Carrito
+[ ] Medios de pago
+[ ] Historial de ventas
+[ ] Descuentos
+[ ] Devoluciones
+[ ] Integración con inventario
+
+## FASE 6 — PEDIDOS
+
+[ ] Clientes
+[ ] Pedidos
+[ ] Señas
+[ ] Estados
+[ ] Fechas de entrega
+[ ] Calendario
+
+## FASE 7 — COMPRAS
+
+[ ] Proveedores
+[ ] Órdenes de compra
+[ ] Recepción
+[ ] Actualización de stock
+[ ] Costos
+
+## FASE 8 — CAJA
+
+[ ] Apertura
+[ ] Movimientos
+[ ] Ingresos
+[ ] Egresos
+[ ] Cierre
+[ ] Arqueo
+
+## FASE 9 — REPORTES
+
+[ ] Ventas
+[ ] Inventario
+[ ] Producción
+[ ] Mermas
+[ ] Rentabilidad
+[ ] Dashboard avanzado
+
+## FASE 10 — PULIDO
+
+[ ] Auditoría
+[ ] Validaciones
+[ ] Permisos detallados
+[ ] Notificaciones
+[ ] Optimización
+[ ] Responsive
+[ ] Backup
+[ ] Seguridad
+[ ] Pruebas
+
+# 21. REGLAS IMPORTANTES DEL SISTEMA
+
+1. No modificar stock directamente sin registrar un movimiento.
+
+2. Toda venta debe generar su correspondiente movimiento de inventario.
+
+3. Toda producción terminada debe aumentar el stock del producto terminado.
+
+4. La producción debe descontar los ingredientes utilizados.
+
+5. Toda merma debe quedar registrada.
+
+6. Las recetas deben permitir calcular automáticamente el costo de producción.
+
+7. Los precios de productos deben conservar un historial de cambios.
+
+8. Las operaciones importantes deben quedar auditadas.
+
+9. Los usuarios deben tener permisos según su rol.
+
+10. Los registros importantes no deberían eliminarse físicamente; preferir desactivación o cancelación.
+
+11. Las operaciones críticas deben utilizar transacciones de base de datos.
+
+12. El sistema debe mantener trazabilidad entre:
+    Venta → Inventario → Producción → Receta → Ingredientes
+
+13. El sistema debe poder responder preguntas como:
+
+* ¿Cuánto vendimos hoy?
+* ¿Qué producto se vende más?
+* ¿Cuánto cuesta producir un pan?
+* ¿Cuánto margen deja cada producto?
+* ¿Qué ingredientes están por agotarse?
+* ¿Qué tenemos que producir mañana?
+* ¿Cuánto desperdiciamos este mes?
+* ¿Cuánto dinero hay en caja?
+* ¿Qué pedidos tenemos para hoy?
+* ¿Cuánto le debemos a cada proveedor?
+
+# 22. MVP
+
+Si se quiere lanzar una primera versión rápidamente, priorizar:
+
+1. Login
+2. Usuarios y roles
+3. Dashboard
+4. Productos
+5. Ingredientes
+6. Recetas
+7. Inventario
+8. Producción
+9. Ventas
+10. Pedidos
+11. Clientes
+12. Caja
+13. Reportes básicos
+
+Después agregar:
+
+* Compras avanzadas
+* Proveedores
+* Auditoría
+* Reportes avanzados
+* Rentabilidad
+* Notificaciones
+* Múltiples sucursales
+* Delivery
+* Fidelización de clientes
+* Integraciones externas
+
+# 23. FLUJO GENERAL DEL NEGOCIO
+
+PROVEEDOR
+↓
+COMPRA
+↓
+INGREDIENTES / INSUMOS
+↓
+INVENTARIO
+↓
+RECETA
+↓
+ORDEN DE PRODUCCIÓN
+↓
+PRODUCTO TERMINADO
+↓
+INVENTARIO
+↓
+VENTA / PEDIDO
+↓
+CLIENTE
+↓
+CAJA
+
+# 24. OBJETIVO FINAL
+
+El sistema debería lograr que la mayor parte de la operación de la panadería quede conectada:
+
+COMPRAS
+↓
+INVENTARIO
+↓
+PRODUCCIÓN
+↓
+PRODUCTOS
+↓
+VENTAS
+↓
+CAJA
+↓
+REPORTES
+
+Y que cada módulo comparta información con los demás, evitando cargar la misma información varias veces.
